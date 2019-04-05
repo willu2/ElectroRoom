@@ -15,11 +15,11 @@ public class ItemEntity implements Comparable<ItemEntity>{
         return itemType;
     }
 
-    public String getStoneName() {
-        return stoneName;
+    public String getItemName() {
+        return itemName;
     }
 
-    private String stoneName;
+    private String itemName;
         private Integer power;
         private boolean isOn;
 
@@ -27,7 +27,7 @@ public class ItemEntity implements Comparable<ItemEntity>{
             }
 
     public ItemEntity(String name, int power, ItemType type, boolean turnon) {
-        stoneName = name;
+        itemName = name;
         this.power = power;
         this.itemType = type;
         this.isOn = turnon;
@@ -52,7 +52,7 @@ public class ItemEntity implements Comparable<ItemEntity>{
 
     @Override
     public String toString() {
-            return "Item [price=" + power + "]";
+            return "Item [power=" + power + "]";
         }
 
     @Override

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class HouseBuilder {
@@ -33,12 +34,17 @@ public class HouseBuilder {
             houseData.add(entity);
        }
     }
-
+    public void showAllData(){
+        for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
+            ItemEntity item = it.next();
+            printItemList(item);
+        }
+    }
     private void printItemList(ItemEntity itemEntity){
-        System.out.print("Stone name:  > " + itemEntity.getStoneName());
-        System.out.print(" ||_Power:  > " + itemEntity.getPower());
-        System.out.print(" ||_Type: > " + itemEntity.getItemType());
-        System.out.print(" ||_TurnOn: > " + itemEntity.isOn());
+        System.out.print("Name:> " + itemEntity.getItemName());
+        System.out.print("  ||_Power:> " + itemEntity.getPower());
+        System.out.print("  ||_Type:> " + itemEntity.getItemType());
+        System.out.print("  ||_TurnOn:> " + itemEntity.isOn());
         System.out.println();
     }
 }
