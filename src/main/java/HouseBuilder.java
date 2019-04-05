@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -40,11 +41,51 @@ public class HouseBuilder {
             printItemList(item);
         }
     }
+
+    public void findByPowerAndType(int power, int type){
+        for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
+            ItemEntity item = it.next();
+            if(item.getPower() == power && item.getItemType() == ItemEntity.ItemType.values()[type-1] ){
+                printItemList(item);
+            }
+        }
+    }
+
+    public int showOnStufs(){
+        int power = 0;
+        for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
+            ItemEntity item = it.next();
+            if(item.isOn())
+                power += item.getPower();
+        }
+        return power;
+    }
+
+    public void sortItemList(){
+        Collections.sort(houseData);
+        IterationPrint(houseData);
+    }
+
+    public void IterationPrint(List<ItemEntity> stouncDB){
+        for (Iterator<ItemEntity> it = stouncDB.iterator(); it.hasNext(); ) {
+            ItemEntity stoneItem = it.next();
+            printItemList(stoneItem);
+        }
+    }
     private void printItemList(ItemEntity itemEntity){
         System.out.print("Name:> " + itemEntity.getItemName());
-        System.out.print("  ||_Power:> " + itemEntity.getPower());
+        System.out.print("  ||_Power:> " + itemEntity.getPower() + " Watt" );
         System.out.print("  ||_Type:> " + itemEntity.getItemType());
         System.out.print("  ||_TurnOn:> " + itemEntity.isOn());
         System.out.println();
     }
+
+    ItemEntity.ItemType arr[] = ItemEntity.ItemType.values();
+
+    public void getEnumIndex(){
+        for (ItemEntity.ItemType item : arr){
+            System.out.println(item.ordinal());
+        }
+    }
+
 }
