@@ -80,12 +80,4 @@ public class HouseBuilder {
         System.out.println();
     }
 
-    ItemEntity.ItemType arr[] = ItemEntity.ItemType.values();
-
-    public void getEnumIndex(){
-        for (ItemEntity.ItemType item : arr){
-            System.out.println(item.ordinal());
-        }
-    }
-
-}
+      }
