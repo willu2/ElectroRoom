@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class StufsDb {
 
-    private String[] roomArray = {"TvSet", "Phone", "Air conditioning" };
+    private String[] roomArray = {"TvSet", "Phone", "Air conditioning", "Heater", "Audio System" };
     private String[] kidsrArray = {"SonyPlaystation", "LapTop", "ElectroCar" };
     private String[] kitchenArray = {"Microwave", "Refrigerator ", "Mixer", "Blender", "Stove", "Oven", "Dishwasher", "Toaster"};
     private String[] serviceArray = {"AlarmSystem", "Iron", "VakuumCleaner" };

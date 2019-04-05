@@ -5,18 +5,18 @@ import java.util.List;
 
 public class HouseBuilder {
 
-    StufsDb stufsDb = new StufsDb();
+    private StufsDb stufsDb = new StufsDb();
     public List<ItemEntity> getStouncDB() {
         return houseData;
     }
 
-    List<ItemEntity> houseData = new ArrayList<>();
+    private List<ItemEntity> houseData = new ArrayList<>();
 
     public HouseBuilder(){
         createHouse();
     }
 
-    public void createHouse(){
+    private void createHouse(){
         ItemEntity entity;
         for (int i = 0; i < stufsDb.getRoomArray().length; i++){
             entity = new ItemEntity(stufsDb.getItemArray(stufsDb.getRoomArray(), i), stufsDb.randPower(), ItemEntity.ItemType.ROOM, stufsDb.randIsOn() );
@@ -42,6 +42,18 @@ public class HouseBuilder {
         }
     }
 
+    public void showOnlyTurnOn(){
+        int power = 0;
+        for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
+            ItemEntity item = it.next();
+            if(item.isOn()){
+                power += item.getPower();
+                printItemList(item);
+                System.out.println("Total power = " + power + " Watt");
+            }
+        }
+    }
+
     public void findByPowerAndType(int power, int type){
         for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
             ItemEntity item = it.next();
@@ -51,14 +63,24 @@ public class HouseBuilder {
         }
     }
 
-    public int showOnStufs(){
-        int power = 0;
+    public void findByType(int type){
         for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
             ItemEntity item = it.next();
-            if(item.isOn())
-                power += item.getPower();
+            if(item.getItemType() == ItemEntity.ItemType.values()[type-1] ){
+                printItemList(item);
+            }
         }
-        return power;
+    }
+
+    public void findByPower(int power){
+        //for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
+            for (ItemEntity item : houseData) {
+                //printItemList(color);
+                        //ItemEntity item = it.next();
+            if(item.getPower() == power){
+                printItemList(item);
+            }
+        }
     }
 
     public void sortItemList(){
@@ -66,7 +88,7 @@ public class HouseBuilder {
         IterationPrint(houseData);
     }
 
-    public void IterationPrint(List<ItemEntity> stouncDB){
+    private void IterationPrint(List<ItemEntity> stouncDB){
         for (Iterator<ItemEntity> it = stouncDB.iterator(); it.hasNext(); ) {
             ItemEntity stoneItem = it.next();
             printItemList(stoneItem);
@@ -79,5 +101,4 @@ public class HouseBuilder {
         System.out.print("  ||_TurnOn:> " + itemEntity.isOn());
         System.out.println();
     }
-
-      }
+ }
