@@ -1,4 +1,4 @@
-
+package electro.stuff.com;
 
 public class ElectroStufs {
     public static void main(String[] args) {
@@ -11,10 +11,7 @@ public class ElectroStufs {
         do {
             int pos = 0;
 
-
             menu.mainManu();
-
-           // BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
             switch (menu.menuTotalPowerEnter()) {
                 case 1:

@@ -1,5 +1,8 @@
+package electro.stuff.com;
+
 import java.util.Random;
 
+/*electro items class*/
 public class StufsDb {
 
     private String[] roomArray = {"TvSet", "Phone", "Air conditioning", "Heater", "Audio System" };
@@ -10,9 +13,7 @@ public class StufsDb {
     public String[] getRoomArray() {
         return roomArray;
     }
-    public String getRoom(int i) {
-        return roomArray[i];
-    }
+
     public String getItemArray(String[] arr, int i) {
         return arr[i];
     }

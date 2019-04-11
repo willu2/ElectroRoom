@@ -1,6 +1,8 @@
+package electro.stuff.com;
 
 public class ItemEntity implements Comparable<ItemEntity>{
 
+        //types of house zone
         enum ItemType{
             ROOM,
             KIDSROOM,
@@ -10,19 +12,12 @@ public class ItemEntity implements Comparable<ItemEntity>{
 
     private ItemType itemType;
 
-    public ItemType getItemType() {
-        return itemType;
-    }
-
-    public String getItemName() {
-        return itemName;
-    }
-
     private String itemName;
-        private Integer power;
-        private boolean isOn;
 
-        public ItemEntity() {
+    private Integer power;
+    private boolean isOn;
+
+    public ItemEntity() {
             }
 
     public ItemEntity(String name, int power, ItemType type, boolean turnon) {
@@ -33,7 +28,7 @@ public class ItemEntity implements Comparable<ItemEntity>{
 
     }
 
-   public boolean isOn() {
+    public boolean isOn() {
         return isOn;
     }
 
@@ -45,8 +40,12 @@ public class ItemEntity implements Comparable<ItemEntity>{
         return power;
     }
 
-    public void setPower(int power) {
-        this.power = power;
+    public ItemType getItemType() {
+        return itemType;
+    }
+
+    public String getItemName() {
+        return itemName;
     }
 
     @Override

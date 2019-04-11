@@ -1,3 +1,5 @@
+package electro.stuff.com;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -6,9 +8,6 @@ import java.util.List;
 public class HouseBuilder {
 
     private StufsDb stufsDb = new StufsDb();
-    public List<ItemEntity> getStouncDB() {
-        return houseData;
-    }
 
     private List<ItemEntity> houseData = new ArrayList<>();
 
@@ -16,6 +15,7 @@ public class HouseBuilder {
         createHouse();
     }
 
+    //random create house data
     private void createHouse(){
         ItemEntity entity;
         for (int i = 0; i < stufsDb.getRoomArray().length; i++){
@@ -35,6 +35,7 @@ public class HouseBuilder {
             houseData.add(entity);
        }
     }
+
     public void showAllData(){
         for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
             ItemEntity item = it.next();
@@ -73,10 +74,7 @@ public class HouseBuilder {
     }
 
     public void findByPower(int power){
-        //for (Iterator<ItemEntity> it = houseData.iterator(); it.hasNext(); ) {
             for (ItemEntity item : houseData) {
-                //printItemList(color);
-                        //ItemEntity item = it.next();
             if(item.getPower() == power){
                 printItemList(item);
             }
